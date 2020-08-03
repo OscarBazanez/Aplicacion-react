@@ -1,11 +1,20 @@
 import React,{useState,useEffect} from 'react'
-import {TextField} from '@material-ui/core'
+import {TextField,CardActionArea,Card,CardMedia,CardContent,Typography,CardActions,Button,ThemeProvider} from '@material-ui/core'
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles({
+    root: {
+      maxWidth: 345,
+    },
+    media: {
+      height: 140,
+    },
+  });
 const Parametros = () => {
-
+    const classes = useStyles();
     const [usuarios, setUsuarios] = useState([])
     const [inputValue, setInputValue] = useState('');
-    const [objetoUser, setObjUser] = useState();
+    const [objetoUser, setObjUser] = useState(0);
     useEffect(() => {
         fetchData()
     }, [])
@@ -48,17 +57,44 @@ const Parametros = () => {
                     ))*/
                 }
                 
-            </ul>{JSON.stringify(inputValue)}
-
-            <br></br><br></br>
-
-            {JSON.stringify(objetoUser)}
-
+            </ul>
+            {//JSON.stringify(inputValue)
+            }
+<ThemeProvider>
+  <Typography variant="h4">Seleccionaste a</Typography>
+</ThemeProvider>
+<Card className={classes.root}>
+    <CardActionArea>
+      <CardMedia
+        className={classes.media}
+        image="http://lorempixel.com/500/500/people/"
+        title="Contemplative Reptile"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+            {objetoUser.name}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          Direccion:{JSON.stringify(objetoUser.address)}
+          Usuario:{objetoUser.username}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          Usuario:{objetoUser.username}
+        </Typography>
+      </CardContent>
+    </CardActionArea>
+    <CardActions>
+      <Button size="small" color="primary">
+        WEB: {objetoUser.website}
+      </Button>
+      <Button size="small" color="primary">
+        Tel: {objetoUser.phone}
+      </Button>
+    </CardActions>
+</Card>
             
-            <h1>Aqui las card con la info</h1>
 
             <br></br><br></br><br></br>
-            <div>{`value: ${JSON.stringify(usuarios.name) !== null ? `'${JSON.stringify(usuarios.name)}'` : 'null'}`}</div>
         </div>
     )
 }
