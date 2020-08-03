@@ -47,13 +47,14 @@ const Parametros = () => {
                         </li>
                     ))*/
                 }
+                
             </ul>{JSON.stringify(inputValue)}
 
             <br></br><br></br>
 
             {JSON.stringify(objetoUser)}
 
-            <br></br><br></br>
+            
 
 
             <br></br><br></br><br></br>
