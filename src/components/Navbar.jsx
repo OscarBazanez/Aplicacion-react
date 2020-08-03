@@ -68,7 +68,6 @@ const Navbar = () =>{
             </Hidden>
             <div className={classes.content}>
                 <div className={classes.toolbar}></div>
-                dasdasdadasdas das 
                 <Parametros />
             </div>
         </div>

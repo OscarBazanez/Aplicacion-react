@@ -32,6 +32,7 @@ const Parametros = () => {
             name="campo"
             id="combo-box-demo"
             options={usuarios}
+            
             getOptionLabel={option => option.name}
             style={{ width: 300 }}
             onChange={(event, newValue) => {
@@ -59,39 +60,44 @@ const Parametros = () => {
                 
             </ul>
             {//JSON.stringify(inputValue)
+            JSON.stringify(objetoUser)==='0' ? '':
+              <>
+              <ThemeProvider>
+                <Typography variant="h4">Seleccionaste a</Typography>
+              </ThemeProvider>
+              <Card className={classes.root}>
+                  <CardActionArea>
+                    <CardMedia
+                      className={classes.media}
+                      image="http://lorempixel.com/500/500/people/"
+                      title="Personas"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                          {JSON.stringify(objetoUser)==='null' ? '':objetoUser.name}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary" component="p">
+                        Direccion:{JSON.stringify(objetoUser)==='null' ? '':JSON.stringify(objetoUser.address)}
+                        Usuario:{JSON.stringify(objetoUser)==='null' ? '':objetoUser.username}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary" component="p">
+                        Usuario:{JSON.stringify(objetoUser)==='null' ? '':objetoUser.username}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      WEB: {JSON.stringify(objetoUser)==='null' ? '':objetoUser.website}
+                    </Button>
+                    <Button size="small" color="primary">
+                      Tel: {JSON.stringify(objetoUser)==='null' ? '':objetoUser.phone}
+                    </Button>
+                  </CardActions>
+              </Card>
+              </>
+
             }
-<ThemeProvider>
-  <Typography variant="h4">Seleccionaste a</Typography>
-</ThemeProvider>
-<Card className={classes.root}>
-    <CardActionArea>
-      <CardMedia
-        className={classes.media}
-        image="http://lorempixel.com/500/500/people/"
-        title="Contemplative Reptile"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-            {objetoUser.name}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Direccion:{JSON.stringify(objetoUser.address)}
-          Usuario:{objetoUser.username}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Usuario:{objetoUser.username}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-    <CardActions>
-      <Button size="small" color="primary">
-        WEB: {objetoUser.website}
-      </Button>
-      <Button size="small" color="primary">
-        Tel: {objetoUser.phone}
-      </Button>
-    </CardActions>
-</Card>
+
             
 
             <br></br><br></br><br></br>
