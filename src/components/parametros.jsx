@@ -55,7 +55,7 @@ const Parametros = () => {
             {JSON.stringify(objetoUser)}
 
             
-
+            <h1>Aqui las card con la info</h1>
 
             <br></br><br></br><br></br>
             <div>{`value: ${JSON.stringify(usuarios.name) !== null ? `'${JSON.stringify(usuarios.name)}'` : 'null'}`}</div>
