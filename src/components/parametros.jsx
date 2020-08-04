@@ -37,7 +37,7 @@ const Parametros = () => {
             style={{ width: 300 }}
             onChange={(event, newValue) => {
                 console.log(newValue)
-                setUsuarios(newValue);
+                //setUsuarios(newValue);
                 setObjUser(newValue);
             }}
             inputValue={inputValue}
@@ -80,7 +80,7 @@ const Parametros = () => {
                         Direccion:{JSON.stringify(objetoUser)==='null' ? '':objetoUser.address.street}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
-                        Usuario:{JSON.stringify(objetoUser)==='null' ? '':objetoUser.username}
+                        Usuario:{JSON.stringify(objetoUser)==='null' ? '':JSON.stringify(objetoUser.username)}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
