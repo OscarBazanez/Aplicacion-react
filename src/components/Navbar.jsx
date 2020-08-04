@@ -3,7 +3,9 @@ import {AppBar,Toolbar,IconButton,Typography,Button,Hidden} from '@material-ui/c
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 import DrawerNavbar from '../components/drawer'
-import Parametros from './parametros'
+//import Parametros from './parametros'
+//import Api from './fun_Promesa'
+import Starwars from './swapi'
 const drawerWidth = 240
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -68,7 +70,7 @@ const Navbar = () =>{
             </Hidden>
             <div className={classes.content}>
                 <div className={classes.toolbar}></div>
-                <Parametros />
+                <Starwars />
             </div>
         </div>
 
