@@ -77,8 +77,7 @@ const Parametros = () => {
                           {JSON.stringify(objetoUser)==='null' ? '':objetoUser.name}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
-                        Direccion:{JSON.stringify(objetoUser)==='null' ? '':JSON.stringify(objetoUser.address.street)}
-                        Usuario:{JSON.stringify(objetoUser)==='null' ? '':objetoUser.username}
+                        Direccion:{JSON.stringify(objetoUser)==='null' ? '':objetoUser.address.street}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
                         Usuario:{JSON.stringify(objetoUser)==='null' ? '':objetoUser.username}
