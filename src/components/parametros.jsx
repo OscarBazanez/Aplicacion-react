@@ -37,7 +37,7 @@ const Parametros = () => {
             style={{ width: 300 }}
             onChange={(event, newValue) => {
                 console.log(newValue)
-                //setUsuarios(newValue);
+                setUsuarios(newValue);
                 setObjUser(newValue);
             }}
             inputValue={inputValue}
@@ -77,7 +77,7 @@ const Parametros = () => {
                           {JSON.stringify(objetoUser)==='null' ? '':objetoUser.name}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
-                        Direccion:{JSON.stringify(objetoUser)==='null' ? '':JSON.stringify(objetoUser.address)}
+                        Direccion:{JSON.stringify(objetoUser)==='null' ? '':JSON.stringify(objetoUser.address.street)}
                         Usuario:{JSON.stringify(objetoUser)==='null' ? '':objetoUser.username}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
