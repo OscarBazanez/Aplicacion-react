@@ -9,6 +9,7 @@ const AboutPeople = (props) => {
     }
     /*
     // No funciona solo muestra GET https://swapi.dev/api/people/null/ 404
+    //al momento de cargar la pagina y cuando hago clic en un personaje no pasa nada
     useEffect(() => {
         fetchDataPeople(props.peopleID)
     },[]);
