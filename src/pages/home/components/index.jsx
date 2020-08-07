@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import  peoples  from '../../services/peoples';
+import  { peoples }  from '../../../services';
 import { makeStyles } from '@material-ui/core/styles';
-import AboutPeople from './a'
+import DetailsPeople from '../components/detailspeople'
 //import MyProvider from './context   /homeContext';
 //import CompoChildOne from './components/compo_1';
 //import {List,ListItem,ListItemIcon,Checkbox,ListItemText,ListItemSecondaryAction,IconButton} from '@material-ui/core'
@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.background.paper,
     },
   }));
-const HomePage = () => {
+const HomePage = ({ onSelectCharacter }) => {
     //const classes = useStyles();
     const [characters, setCharacters] = useState(null);
-    const [PeopleId, setPeopleId] = useState(null);
+    //const [PeopleId, setPeopleId] = useState(null);
     
     const fetchData = async (urlParam) => {
         const serverData = await peoples.getAll(urlParam);
@@ -33,7 +33,7 @@ const HomePage = () => {
     const requestPeopleId = (urlPeopleId) => {
         const [baseUrlData2, paramsdddd] = urlPeopleId.split('http://swapi.dev/api/people/');
         //console.log(paramsdddd)
-        setPeopleId(paramsdddd)
+        onSelectCharacter(paramsdddd)
     }
 
     return (
@@ -51,8 +51,6 @@ const HomePage = () => {
                 {characters.previous && <button onClick={() => requestMoreData(characters.previous)}>Previous</button>}
                 {characters.next && <button onClick={() => requestMoreData(characters.next)} style={{ marginLeft: '16px' }}>Next</button>}
             </div>
-            <h1>{PeopleId}</h1>
-                <AboutPeople peopleID={PeopleId}/>
         </>
     )
 }
