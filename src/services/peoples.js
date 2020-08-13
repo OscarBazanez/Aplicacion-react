@@ -1,8 +1,8 @@
 import serviceConfig from './config';
 
 const peoples = {
-    getAll: async (urlParam = '') => {
-        const result = await fetch(`${serviceConfig.baseUrl}/people/${urlParam}`);
+    getAll: async (urlParam = '',endPoint = '') => {
+        const result = await fetch(`${serviceConfig.baseUrl}/${endPoint}/${urlParam}`);
         const results = await result.json();
         return results;
     },

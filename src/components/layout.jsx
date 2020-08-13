@@ -1,18 +1,19 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from './navbar'
-import HomePage from '../pages/home/components/index'
+//import HomePage from '../pages/home/components/index'
 import LayoutSwapi from '../pages/layoutswapi'
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex'
     },
-    toolbar: theme.mixins.toolbar,
     content: {
-        backgroundColor: theme.palette.background.default,
-        padding: theme.spacing(3),
         flexGrow: 1,
-    }
+        height: "100vh",
+        overflow: "auto",
+        padding: theme.spacing(3)
+    },
+    appBarSpacer: theme.mixins.toolbar
 }));
 const Layout = () =>{
     const classes = useStyles();
@@ -20,10 +21,10 @@ const Layout = () =>{
         <>
             <div className={classes.root}>
                 <Navbar />
-                <div className={classes.content}>
-                    <div className={classes.toolbar}></div>
+                <main className={classes.content}>
+                    <div className={classes.appBarSpacer}></div>
                     <LayoutSwapi />
-                </div>
+                </main>
             </div>
         </>
     )
