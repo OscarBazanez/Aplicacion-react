@@ -21,6 +21,8 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import EndPoint from '../../../services/endpoint'
+import { RedButton } from '../../../components/ui/atoms'
+import MovieIcon from '@material-ui/icons/Movie'
 const endPointPeople= EndPoint.swapi.people
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -94,7 +96,7 @@ const DetailsPeople = ({ props,characterId }) => {
         />*/
         }
         <CardContent>
-          <Grid container className={classes.root} spacing={0}>
+          <Grid container spacing={0}>
               <Grid item xs={6}>
                   <Typography variant="body2" color="textSecondary" component="p">
                   Altura: {(detailsPeople.height !== "unknown") ? detailsPeople.height : "Desconocido"}
@@ -146,9 +148,14 @@ const DetailsPeople = ({ props,characterId }) => {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography>
-              Set aside off of the heat to let rest for 10 minutes, and then serve.
-            </Typography>
+          <Grid container spacing={0}>
+              <Grid item xs={6}>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                  Altura:
+                  </Typography>
+                  <RedButton size="small" startIcon={<MovieIcon/>}>dasdas</RedButton>
+              </Grid>
+          </Grid>
           </CardContent>
         </Collapse>
       </Card>
