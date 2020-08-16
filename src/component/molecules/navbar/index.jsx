@@ -15,8 +15,11 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import StarIcon from '@material-ui/icons/Star';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import SearchIcon from '@material-ui/icons/Search';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 // For Switch Theming
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import {
@@ -27,7 +30,7 @@ import {
   import {
     Switch
   } from "@material-ui/core";
-
+  import { Link } from 'react-router-dom';
   
 const drawerWidth = 240;
 
@@ -81,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Navbar() {
+export default function Navbar({ darkState,setDarkState }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -93,28 +96,40 @@ export default function Navbar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const [darkState, setDarkState] = useState(false);
-  const palletType = darkState ? "dark" : "light";
-  const mainPrimaryColor = darkState ? grey[900] : lightBlue[800];
-  const mainSecondaryColor = darkState ? purple["A200"] : grey[50];
-  let darkTheme = createMuiTheme({
-    palette: {
-      type: palletType,
-      primary: {
-        main: mainPrimaryColor
-      },
-      secondary: {
-        main: mainSecondaryColor
-      }
-    }
-  });
-  darkTheme = responsiveFontSizes(darkTheme);
+  
 
-  const handleThemeChange = () => {
-    setDarkState(!darkState);
-  };
+  const sections = [
+    {
+        label: 'Dashboard',
+        route: '/dashboard',
+        icon: <DashboardIcon />,
+    },
+    {
+        label: 'Favoritas',
+        route: '/favorites',
+        icon: <FavoriteIcon />,
+    },
+    {
+        label: 'Buscador',
+        route: '/search',
+        icon: <SearchIcon />,
+    },
+    {
+        label: 'Perfil',
+        route: '/profile',
+        icon: <AccountCircleIcon />,
+    },
+    {
+        label: 'StarWars',
+        route: '/StarWars',
+        icon: <StarIcon />,
+    }
+]
+
+
+
+
   return (
-    <ThemeProvider theme={darkTheme}>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -136,7 +151,7 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Mini variant drawer<Switch checked={darkState} onChange={handleThemeChange} />
+            Mini variant drawer<Switch checked={darkState} onChange={() => { setDarkState(!darkState) }} />
           </Typography>
         </Toolbar>
       </AppBar>
@@ -160,21 +175,21 @@ export default function Navbar() {
         </div>
         <Divider />
         <List>
-            <ListItem button>
-                <ListItemIcon><MailIcon /></ListItemIcon>
-                <ListItemText primary="ddasds" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText primary="ddasds" />
-            </ListItem>
+        {
+          sections.map((section, idx) =>
+              <Link style={{ color: 'inherit', textDecoration: 'inherit'}} key={idx} to={section.route}>
+                  <ListItem  button>
+                    <ListItemIcon>{section.icon}</ListItemIcon>
+                    <ListItemText primary={section.label} />
+                  </ListItem>
+              </Link>
+          )
+        }
         </List>
         <Divider />
       </Drawer>
 
     </div>
-    </ThemeProvider>
   
   );
 }
-

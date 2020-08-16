@@ -1,5 +1,14 @@
 import React,{ useState, useEffect } from 'react';
-import  { peoples }  from '../../../services';
+import  { peoples }  from '../../../../services';
+import EndPoint from '../../../../services/endpoint'
+import { RedButton } from '../../../atoms'
+
+/*
+import  { peoples }  from '../../../../../services';
+
+import EndPoint from '../../../../../services/endpoint'
+import { RedButton } from '../../../../atoms'
+*/
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -20,8 +29,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import EndPoint from '../../../services/endpoint'
-import { RedButton } from '../../../components/ui/atoms'
 import MovieIcon from '@material-ui/icons/Movie'
 const endPointPeople= EndPoint.swapi.people
 const useStyles = makeStyles((theme) => ({

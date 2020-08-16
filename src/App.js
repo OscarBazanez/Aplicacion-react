@@ -1,11 +1,11 @@
 import React from 'react';
-import Layout from './components/layout'
+import LayoutTemplate from './component/templates/layout';
+import './app.css';
+
 const App = () => {
-  return (
-    <>
-      <Layout />
-    </>
-  );
+    return (
+        <LayoutTemplate />
+    )
 }
 
 export default App;

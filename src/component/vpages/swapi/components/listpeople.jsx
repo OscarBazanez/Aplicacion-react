@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import  { peoples }  from '../../../services';
+import  { peoples }  from '../../../../services';
+import EndPoint from '../../../../services/endpoint'
 import { makeStyles } from '@material-ui/core/styles';
 import {Typography,Paper,IconButton} from '@material-ui/core'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';//import MyProvider from './context   /homeContext';
-import EndPoint from '../../../services/endpoint'
+//import EndPoint from '../../../services/endpoint'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 const endPointPeople= EndPoint.swapi.people
