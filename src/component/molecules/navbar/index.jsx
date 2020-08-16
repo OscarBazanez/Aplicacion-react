@@ -161,6 +161,7 @@ export default function Navbar({ darkState,setDarkState }) {
           [classes.drawerOpen]: open,
           [classes.drawerClose]: !open,
         })}
+        
         classes={{
           paper: clsx({
             [classes.drawerOpen]: open,
