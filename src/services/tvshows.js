@@ -1,12 +1,12 @@
 import AxiosService from './xhr';
 import EndPoint from './endpoint'
 
-const endpoint = EndPoint.tmdb.movie;
+const endpoint = EndPoint.tmdb.tvshows;
 
-const movies = {
+const tvshow = {
     search: (query) => {
         return AxiosService.Get(endpoint, `&query=${query}`);
     }
 }
 
-export default movies;
+export default tvshow;

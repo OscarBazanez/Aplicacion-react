@@ -20,17 +20,10 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-// For Switch Theming
-import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import {
-    purple,
-    grey,
-    lightBlue,
-  } from "@material-ui/core/colors";
-  import {
-    Switch
-  } from "@material-ui/core";
-  import { Link } from 'react-router-dom';
+  Switch
+} from "@material-ui/core";
+import { Link } from 'react-router-dom';
   
 const drawerWidth = 240;
 
@@ -161,7 +154,7 @@ export default function Navbar({ darkState,setDarkState }) {
           [classes.drawerOpen]: open,
           [classes.drawerClose]: !open,
         })}
-        
+
         classes={{
           paper: clsx({
             [classes.drawerOpen]: open,

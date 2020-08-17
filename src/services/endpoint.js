@@ -6,6 +6,10 @@ const EndPoint = {
         species   : 'species',
         starships : 'starships',
         vehicles  : 'vehicles',
+    },
+    tmdb: {
+        movie     : '/search/movie',
+        tvshows    : '/search/tv',
     }
 }
 export default EndPoint

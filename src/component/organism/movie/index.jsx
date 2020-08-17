@@ -9,8 +9,8 @@ import {
     Button,
     Typography
 } from '@material-ui/core'
-
-const useStyles = makeStyles({
+import FavoriteIcon from '@material-ui/icons/Favorite';
+const useStyles = makeStyles((theme) => ({
     root: {
       width: 345,
       maxHeight: 300,
@@ -18,7 +18,17 @@ const useStyles = makeStyles({
     media: {
       height: 140,
     },
-  });
+    expand: {
+        transform: 'rotate(0deg)',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+          duration: theme.transitions.duration.shortest,
+        }),
+      },
+      expandOpen: {
+        transform: 'rotate(180deg)',
+      },
+}));
 const MovieItem = ({ movie }) => {
     const classes = useStyles();
     return (
@@ -40,9 +50,7 @@ const MovieItem = ({ movie }) => {
                 </CardContent>
                 </CardActionArea>
                 <CardActions>
-                <Button size="small" color="primary">
-                    Share
-                </Button>
+                <FavoriteIcon color='error'/>
                 <Button size="small" color="primary">
                     Learn More
                 </Button>
